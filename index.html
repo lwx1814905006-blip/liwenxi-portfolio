@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="李文曦｜AI 产品与大模型应用方向个人简历网站" />
+  <title>李文曦 · AI Product Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#111827; --muted:#64748b; --line:#dfe5ec; --paper:#f8f8f5; --card:#fff; --accent:#173b6c; --gold:#ba9262; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans","Noto Sans SC",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px, calc(100% - 48px)); margin:auto; }
+    nav { height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .brand { letter-spacing:.12em; font-size:.84rem; font-weight:700; }
+    .nav-links { display:flex; align-items:center; gap:28px; font-size:.84rem; color:var(--muted); }
+    .language { border:1px solid var(--ink); padding:8px 12px; color:var(--ink); background:transparent; font:500 .75rem "DM Mono",monospace; cursor:pointer; }
+    .hero { min-height:630px; padding:92px 0 76px; display:grid; grid-template-columns:1.35fr .65fr; gap:64px; align-items:center; }
+    .eyebrow { color:var(--accent); font:500 .74rem "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { font-size:clamp(3.25rem,8vw,7.25rem); letter-spacing:-.075em; line-height:.9; margin:21px 0 29px; font-weight:600; }
+    h1 span { color:var(--gold); font-family:Georgia,"Noto Sans SC",serif; font-style:italic; font-weight:400; }
+    .intro { max-width:520px; color:#475569; font-size:1.08rem; line-height:1.8; margin:0 0 38px; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .button { padding:13px 19px; font-size:.85rem; font-weight:600; border:1px solid var(--ink); transition:.2s ease; }
+    .button.primary { background:var(--ink); color:white; }
+    .button:hover { transform:translateY(-2px); }
+    .portrait { width:min(100%,330px); aspect-ratio:3/4; background:linear-gradient(145deg,#d8e2e8,#aebcc6); justify-self:end; position:relative; overflow:hidden; }
+    .portrait::before { content:"LW"; display:grid; place-items:center; width:100%; height:100%; color:rgba(17,24,39,.18); font:400 6rem Georgia,serif; }
+    .portrait-note { position:absolute; bottom:0; left:0; right:0; background:rgba(17,24,39,.88); color:white; padding:12px 15px; font:400 .67rem "DM Mono",monospace; letter-spacing:.06em; }
+    .facts { border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); }
+    .fact { padding:25px 0; border-right:1px solid var(--line); }
+    .fact:last-child { border:none; padding-left:28px; }
+    .fact:not(:last-child) { padding-right:28px; }
+    .fact-label { color:var(--muted); display:block; font:400 .67rem "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; margin-bottom:9px; }
+    .fact strong { font-size:.96rem; font-weight:600; }
+    section { padding:118px 0; }
+    .section-top { display:grid; grid-template-columns:.4fr 1.6fr; gap:28px; margin-bottom:54px; }
+    .section-number { color:var(--gold); font:500 .72rem "DM Mono",monospace; }
+    h2 { margin:0; font-size:clamp(2rem,4vw,3.8rem); letter-spacing:-.06em; line-height:1; font-weight:600; }
+    .about-copy { display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-left:calc(20% + 28px); color:#475569; line-height:1.85; }
+    .about-copy p { margin:0; }
+    .focus-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+    .focus { padding:29px 26px 30px 0; border-bottom:1px solid var(--line); min-height:190px; }
+    .focus + .focus { padding-left:27px; border-left:1px solid var(--line); }
+    .focus-index { color:var(--gold); font:400 .72rem "DM Mono",monospace; }
+    h3 { font-size:1.23rem; letter-spacing:-.03em; margin:34px 0 10px; }
+    .focus p { color:var(--muted); font-size:.91rem; line-height:1.65; margin:0; }
+    .projects { background:var(--ink); color:white; }
+    .projects .section-number { color:#d7b084; }
+    .project-placeholder { border-top:1px solid #435064; display:grid; grid-template-columns:.4fr 1.6fr; gap:28px; padding:31px 0; }
+    .project-placeholder:last-child { border-bottom:1px solid #435064; }
+    .project-status { color:#d7b084; font:400 .68rem "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .project-placeholder h3 { margin:0 0 9px; font-size:1.55rem; }
+    .project-placeholder p { color:#b9c4d2; margin:0; line-height:1.65; }
+    .contact { padding:120px 0 54px; }
+    .contact-main { display:flex; flex-direction:column; align-items:flex-start; }
+    .contact h2 { font-size:clamp(2.7rem,6vw,5.8rem); max-width:850px; }
+    .contact h2 em { color:var(--gold); font-family:Georgia,"Noto Sans SC",serif; font-weight:400; }
+    .mail { margin-top:41px; padding-bottom:6px; border-bottom:1px solid var(--ink); font-size:1.12rem; font-weight:600; }
+    footer { border-top:1px solid var(--line); padding:22px 0; color:var(--muted); display:flex; justify-content:space-between; font:400 .7rem "DM Mono",monospace; }
+    [data-en] { display:none; }
+    body.english [data-zh] { display:none; }
+    body.english [data-en] { display:block; }
+    body.english [data-en-inline] { display:inline; }
+    @media(max-width:720px) { .wrap{width:min(100% - 32px,1120px)} nav{height:70px}.nav-links a{display:none}.hero{padding:65px 0;min-height:auto;grid-template-columns:1fr;gap:38px}.portrait{justify-self:start;width:220px}.facts,.focus-grid{grid-template-columns:1fr}.fact,.fact:last-child,.fact:not(:last-child){padding:18px 0;border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.section-top,.project-placeholder{grid-template-columns:1fr;gap:16px}.about-copy{margin-left:0;grid-template-columns:1fr;gap:16px}.focus,.focus + .focus{padding:24px 0;border-left:0}.contact{padding-top:80px}footer{gap:12px;flex-direction:column} }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav>
+      <a class="brand" href="#top">LI WENXI / 李文曦</a>
+      <div class="nav-links"><a href="#about" data-zh>关于我</a><a href="#focus" data-zh>专业方向</a><a href="#contact" data-zh>联系</a><a href="#about" data-en>About</a><a href="#focus" data-en>Focus</a><a href="#contact" data-en>Contact</a><button class="language" onclick="toggleLanguage()">中文 / EN</button></div>
+    </nav>
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow" data-zh>AI 产品 · 大模型应用</div><div class="eyebrow" data-en>AI Product · LLM Applications</div>
+        <h1 data-zh>让 AI<br>产生<span>价值。</span></h1><h1 data-en>Design AI<br>for <span>impact.</span></h1>
+        <p class="intro" data-zh>我是李文曦，江南大学大数据管理与应用专业本科生。关注 AI 产品与大模型应用，希望以数据洞察与用户思维，把前沿技术转化为真实、可用的产品体验。</p>
+        <p class="intro" data-en>I am Wenxi Li, an undergraduate student in Big Data Management and Application at Jiangnan University. I am interested in AI products and LLM applications—turning emerging technology into useful experiences through data insight and user empathy.</p>
+        <div class="hero-actions"><a class="button primary" href="mailto:1814905006@qq.com" data-zh>联系我</a><a class="button primary" href="mailto:1814905006@qq.com" data-en>Get in touch</a><a class="button" href="#about" data-zh>了解更多 ↓</a><a class="button" href="#about" data-en>Discover more ↓</a></div>
+      </div>
+      <div class="portrait" aria-label="头像预留位置"><div class="portrait-note" data-zh>头像位置 · 待替换</div><div class="portrait-note" data-en>PORTRAIT · TO BE ADDED</div></div>
+    </section>
+    <div class="facts"><div class="fact"><span class="fact-label">Education</span><strong data-zh>江南大学 · 2028 届</strong><strong data-en>Jiangnan University · Class of 2028</strong></div><div class="fact"><span class="fact-label">Major</span><strong data-zh>大数据管理与应用</strong><strong data-en>Big Data Management & Application</strong></div><div class="fact"><span class="fact-label">Target Role</span><strong data-zh>AI 产品 / 大模型应用</strong><strong data-en>AI Product / LLM Applications</strong></div></div>
+    <section id="about"><div class="section-top"><div class="section-number">01 / ABOUT</div><h2 data-zh>技术与人的<br>交汇点。</h2><h2 data-en>Where technology<br>meets people.</h2></div><div class="about-copy"><p data-zh>在数据与管理的交叉学科中学习，我正在建立从数据理解、问题拆解到产品设计的完整思考方式。</p><p data-zh>我特别关注大模型如何帮助人与组织提升效率，并期待在国际化团队中，以开放、严谨的方式共同创造有意义的产品。</p><p data-en>At the intersection of data and management, I am building an end-to-end way of thinking—from understanding data and framing problems to designing products.</p><p data-en>I am especially interested in how LLMs can empower people and organizations. I look forward to creating meaningful products in an international team with curiosity and rigor.</p></div></section>
+    <section id="focus"><div class="section-top"><div class="section-number">02 / FOCUS</div><h2 data-zh>正在深入的<br>三个方向。</h2><h2 data-en>Three areas<br>I am exploring.</h2></div><div class="focus-grid"><article class="focus"><span class="focus-index">01</span><h3 data-zh>AI 产品设计</h3><h3 data-en>AI Product Design</h3><p data-zh>探索从用户需求出发，定义 AI 能力边界与可感知价值。</p><p data-en>Defining useful AI experiences from real user needs and measurable value.</p></article><article class="focus"><span class="focus-index">02</span><h3 data-zh>大模型应用</h3><h3 data-en>LLM Applications</h3><p data-zh>关注 Prompt、Agent 与 RAG 等技术在真实工作流中的落地。</p><p data-en>Exploring Prompting, Agents, and RAG in real-world workflows.</p></article><article class="focus"><span class="focus-index">03</span><h3 data-zh>数据驱动决策</h3><h3 data-en>Data-informed Decisions</h3><p data-zh>用结构化分析与数据洞察，支持更清晰的产品判断。</p><p data-en>Using structured analysis and data insight for clearer product decisions.</p></article></div></section>
+  </main>
+  <section class="projects"><div class="wrap"><div class="section-top"><div class="section-number">03 / WORK</div><h2 data-zh>项目正在<br>酝酿中。</h2><h2 data-en>Work in<br>progress.</h2></div><div class="project-placeholder"><div class="project-status" data-zh>即将更新</div><div><h3 data-zh>AI 产品与项目实践</h3><h3 data-en>AI Product & Project Practice</h3><p data-zh>这里将展示我后续完成的课程项目、产品案例、竞赛与实习经历。</p><p data-en>This space will feature my future coursework, product cases, competitions, and internship experience.</p></div></div></div></section>
+  <main class="wrap"><section class="contact" id="contact"><div class="contact-main"><div class="section-number">04 / CONTACT</div><h2 data-zh>期待与优秀的人<br>一起做<span>有意义的事。</span></h2><h2 data-en>Let’s build <em>meaningful</em><br>things together.</h2><a class="mail" href="mailto:1814905006@qq.com">1814905006@qq.com</a><p data-zh>电话：197 0860 1781</p><p data-en>Tel: +86 197 0860 1781</p></div></section><footer><span>© 2026 LI WENXI</span><span data-zh>江南大学 · 大数据管理与应用</span><span data-en>JIANGNAN UNIVERSITY · BIG DATA MANAGEMENT & APPLICATION</span></footer></main>
+  <script>function toggleLanguage(){document.body.classList.toggle('english');document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';}</script>
+</body>
+</html>
+
